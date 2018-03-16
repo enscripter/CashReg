@@ -38,13 +38,13 @@ pipeline {
             }
         }
     }
-    def publish(target) {
-        node {
-            unstash 'everything'
-            dir('src') {
-                sh "dotnet publish -r ${target}"
-                archiveArtifacts "bin/Debug/netcoreapp2.0/${target}/publish/*.*"
-            }
+}
+def publish(target) {
+    node {
+        unstash 'everything'
+        dir('src') {
+            sh "dotnet publish -r ${target}"
+            archiveArtifacts "bin/Debug/netcoreapp2.0/${target}/publish/*.*"
         }
     }
 }
