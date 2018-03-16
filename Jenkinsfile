@@ -32,7 +32,7 @@ pipeline {
             }
         }
         stage('publish') {
-            steps: {
+            steps {
                 echo 'Publishing...'
                 parallel windowsx64: {
                     publish('win10-x64')
