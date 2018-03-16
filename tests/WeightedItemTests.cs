@@ -9,7 +9,7 @@ namespace tests
     public class WeightedItemTests
     {
         [Fact]
-        public void WeightedItem_GetValue()
+        public void WeightedItem_TotalValue()
         {
             var item = new WeightedItem(){
                 name = "watermelon",
