@@ -17,7 +17,7 @@ namespace CashReg.objects
         /// <returns>The calculated value of the entire quantity of this Item</returns>
         public override float TotalValue()
         {
-            throw new NotImplementedException();
+            return value * quantity;
         }
     }
 }

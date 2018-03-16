@@ -15,7 +15,7 @@ namespace CashReg.objects
         /// <returns>The total value of this Item</returns>
         public override float TotalValue()
         {
-            throw new System.NotImplementedException();
+            return weight * value;
         }
     }
 }
