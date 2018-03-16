@@ -24,8 +24,8 @@ pipeline {
             }
         }
         stage('publish') {
-            echo 'Publishing...'
             steps: {
+                echo 'Publishing...'
                 parallel windowsx64: {
                     publish('win10-x64')
                 }, centos7x64: {
