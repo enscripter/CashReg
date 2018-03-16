@@ -1,4 +1,4 @@
-namespace src.interfaces
+namespace CashReg.interfaces
 {
     /// <summary>
     /// Public interface for a Register
