@@ -1,5 +1,13 @@
 #!/usr/bin/env groovy
-
+def publish(target) {
+    node {
+        unstash 'everything'
+        dir('src') {
+            sh "dotnet publish -r ${target}"
+            archiveArtifacts "bin/Debug/netcoreapp2.0/${target}/publish/*.*"
+        }
+    }
+}
 pipeline {
     agent any
 
@@ -38,15 +46,6 @@ pipeline {
                     publish('osx.10.12-x64')
                 }
             }
-        }
-    }
-}
-def publish(target) {
-    node {
-        unstash 'everything'
-        dir('src') {
-            sh "dotnet publish -r ${target}"
-            archiveArtifacts "bin/Debug/netcoreapp2.0/${target}/publish/*.*"
         }
     }
 }
