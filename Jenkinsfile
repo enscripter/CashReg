@@ -5,7 +5,7 @@ pipeline {
 
     stages {
         stage('Compile') {
-            node {
+            steps {
                 echo 'Comiling...'
                 checkout scm
                 stash 'everything'
