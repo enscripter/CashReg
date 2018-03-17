@@ -10,6 +10,7 @@ namespace CashReg.objects
     /// </summary>
     public class ItemRegister : IRegister<ItemBase>
     {
+        private CouponStore couponStore;
         private List<ItemBase> items;
         /// <summary>
         /// Add an ItemBase to this Register
@@ -29,10 +30,23 @@ namespace CashReg.objects
         /// <returns>The total value of all ItemBase items minus any Discounts</returns>
         public decimal Total()
         {
-            decimal total = 0;
-            foreach (ItemBase item in items)
-                total += item.TotalValue();
-            return total;
+            return SubTotal() - TotalDiscount();
+        }
+        /// <summary>
+        /// Apply a discount to this register
+        /// </summary>
+        /// <param name="discount">The discount to be applied</param>
+        public void ApplyDiscount(IDiscounter<ItemBase> discount)
+        {
+            couponStore.Add(discount);
+        }
+        /// <summary>
+        /// Wrapper method around Total Discount of the coupon store
+        /// </summary>
+        /// <returns>A value of units saved</returns>
+        public decimal TotalDiscount()
+        {
+            return couponStore.TotalDiscount(items);
         }
         /// <summary>
         /// The number of unique items in this register
@@ -58,6 +72,15 @@ namespace CashReg.objects
         public ItemRegister()
         {
             items = new List<ItemBase>();
+            couponStore = new CouponStore();
+        }
+
+        internal decimal SubTotal()
+        {
+            decimal total = 0;
+            foreach (ItemBase item in items)
+                total += item.TotalValue();
+            return total;
         }
     }
 }
