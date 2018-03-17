@@ -25,15 +25,21 @@ namespace CashReg.objects
         /// <returns>A CouponBase<ItemBase> instance represented by the string</returns>
         public CouponBase Convert(string input)
         {
+            if (input == "")
+                return null;
             var inputParts = input.Split(' ');
+            if (inputParts.Length <= 1)
+                return null;
             switch (inputParts[0]) {
                 case "BXGY":
+                    if (inputParts.Length != 4) return null;
                     return new BxGyCoupon() {
                         itemName = inputParts[1],
                         X = Int32.Parse(inputParts[2]),
                         Y = Int32.Parse(inputParts[3])
                     };
                 case "%":
+                    if (inputParts.Length != 2) return null;
                     return new PercentOffCoupon() {
                         percent = float.Parse(inputParts[1])
                     };
