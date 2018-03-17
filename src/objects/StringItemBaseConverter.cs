@@ -21,7 +21,7 @@ namespace CashReg.objects
             if (inputParts.Length != 3)
                 return null;
             try {
-                var name = inputParts[1];
+                var name = inputParts[1].ToLower();
                 var value = decimal.Parse(inputParts[2]);
                 int quantity = 0;
                 var weight = 0.0F;
@@ -33,8 +33,7 @@ namespace CashReg.objects
                         name = name,
                         value = value
                     };
-                }
-                else if (float.TryParse(inputParts[0], out weight)) {
+                } else if (float.TryParse(inputParts[0], out weight)) {
                     if (weight == 0)
                         throw new FormatException();
                     return new WeightedItem() {

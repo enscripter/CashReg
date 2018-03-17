@@ -30,8 +30,8 @@ namespace CashReg.objects
             var inputParts = input.Split(' ');
             if (inputParts.Length <= 1)
                 return null;
-            switch (inputParts[0]) {
-                case "BXGY":
+            switch (inputParts[0].ToLower().Trim()) {
+                case "bxgy":
                     if (inputParts.Length != 4) return null;
                     return new BxGyCoupon() {
                         itemName = inputParts[1],
