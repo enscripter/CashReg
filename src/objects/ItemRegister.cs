@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using CashReg.interfaces;
 
 namespace CashReg.objects
@@ -7,13 +8,14 @@ namespace CashReg.objects
     /// </summary>
     public class ItemRegister : IRegister<ItemBase>
     {
+        private List<ItemBase> items;
         /// <summary>
         /// Add an ItemBase to this Register
         /// </summary>
         /// <param name="item">The ItemBase to be added</param>
         public void Add(ItemBase item)
         {
-            throw new System.NotImplementedException();
+            items.Add(item);
         }
         /// <summary>
         /// Get the total of all ItemBase item in this register
@@ -21,7 +23,25 @@ namespace CashReg.objects
         /// <returns>The total value of all ItemBase items minus any Discounts</returns>
         public float Total()
         {
-            throw new System.NotImplementedException();
+            float total = 0;
+            foreach (ItemBase item in items)
+                total += item.TotalValue();
+            return total;
+        }
+        /// <summary>
+        /// The number of unique items in this register
+        /// </summary>
+        /// <returns></returns>
+        public int UniqueItemCount()
+        {
+            return items.Count;
+        }
+        /// <summary>
+        /// Public constructor for this register
+        /// </summary>
+        public ItemRegister()
+        {
+            items = new List<ItemBase>();
         }
     }
 }
