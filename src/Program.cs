@@ -9,7 +9,6 @@ namespace CashReg
     {
         static void Main(string[] args)
         {
-            Console.WriteLine($"Welcome to CashReg type \"help\" to see more info");
             new CommandLineRegisterInterpreter().Run();
         }
     }

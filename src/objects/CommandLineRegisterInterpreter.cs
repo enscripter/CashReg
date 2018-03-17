@@ -21,6 +21,7 @@ namespace CashReg.objects
         /// </summary>
         public void Run()
         {
+            Console.WriteLine($"Welcome to CashReg type \"help\" to see more info");
             var register = new ItemRegister();
             while (true)
             {
