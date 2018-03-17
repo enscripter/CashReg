@@ -37,6 +37,8 @@ namespace CashReg.objects
         {
             if (item.GetType() == typeof(PercentOffCoupon)) {
                 percentOff = (PercentOffCoupon)item;
+                if (percentOff.percent > 100 || percentOff.percent < 0)
+                    percentOff.percent = 0;
                 return;
             }
             if (item.GetType() == typeof(BxGyCoupon)) {
