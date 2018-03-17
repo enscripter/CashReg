@@ -3,13 +3,8 @@ namespace CashReg.interfaces
     /// <summary>
     /// Public interface for a Register
     /// </summary>
-    public interface IRegister<T>
+    public interface IRegister<T> : IStore<T>
     {
-        /// <summary>
-        /// Add something to this Register
-        /// </summary>
-        /// <param name="item">The item to be added</param>
-        void Add(T item);
         /// <summary>
         /// The total of all items in the register
         /// </summary>
