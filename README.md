@@ -8,6 +8,9 @@
     - [Test](#test)
         - [All tests](#all-tests)
         - [Some tests](#some-tests)
+    - [Run](#run)
+        - [From source](#from-source)
+        - [From build](#from-build)
     - [Publish](#publish)
         - [Windows](#windows)
             - [Portable](#portable)
@@ -94,6 +97,23 @@ dotnet test
 ~~~sh
 cd tests
 dotnet test --filter Converter
+~~~
+
+## Run
+
+### From source
+
+~~~sh
+cd src
+dotnet run
+~~~
+
+### From build
+
+~~~sh
+dotnet src/bin/Debug/netcoreapp2.0/CashReg.dll
+-- for release build --
+dotnet src/bin/Release/netcoreapp2.0/CashReg.dll
 ~~~
 
 ## Publish
