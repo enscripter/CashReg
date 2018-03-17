@@ -6,6 +6,6 @@ namespace CashReg.interfaces
         /// Add something to this Register
         /// </summary>
         /// <param name="item">The item to be added</param>
-         void Add(T item);
+        void Add(T item);
     }
 }
