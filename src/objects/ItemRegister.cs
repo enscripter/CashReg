@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CashReg.interfaces;
@@ -46,7 +47,10 @@ namespace CashReg.objects
         /// </summary>
         public void ListItems()
         {
-            throw new System.NotImplementedException();
+            foreach (var item in items)
+            {
+                Console.WriteLine($"\t{item}");
+            }
         }
 
         /// <summary>

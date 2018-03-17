@@ -20,6 +20,14 @@ namespace CashReg.objects
             return value * (decimal) quantity;
         }
         /// <summary>
+        /// A friendly string
+        /// </summary>
+        /// <returns>A friendly string representation of this item</returns>
+        public override string ToString()
+        {
+            return $"{quantity} {name}@{value}";
+        }
+        /// <summary>
         /// Update this QuantityItem with additional quantities from another QuantityItem,
         /// if item is not typeof QuantityItem this is a no-op
         /// </summary>

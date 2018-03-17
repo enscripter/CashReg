@@ -20,6 +20,14 @@ namespace CashReg.objects
             return (decimal)weight * value;
         }
         /// <summary>
+        /// Friendly string
+        /// </summary>
+        /// <returns>A friendly string representation of this item</returns>
+        public override string ToString()
+        {
+            return $"{weight} {name}@{value}";
+        }
+        /// <summary>
         /// Update this WeightedItem with additional weight from another WeightedItem,
         /// if item is not typeof WeightedItem this is a no-op
         /// </summary>
