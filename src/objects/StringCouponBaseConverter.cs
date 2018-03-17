@@ -23,7 +23,7 @@ namespace CashReg.objects
         /// </summary>
         /// <param name="input">A string representation of a CouponBase<ItemBase></param>
         /// <returns>A CouponBase<ItemBase> instance represented by the string</returns>
-        CouponBase IConverter<string, CouponBase>.Convert(string input)
+        public CouponBase Convert(string input)
         {
             var inputParts = input.Split(' ');
             switch (inputParts[0]) {
