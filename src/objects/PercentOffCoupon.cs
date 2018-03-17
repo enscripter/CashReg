@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CashReg.objects
 {
@@ -18,7 +19,7 @@ namespace CashReg.objects
         /// <returns>The calculated discoun from the item</returns>
         public override float Discount(IEnumerable<ItemBase> items)
         {
-            throw new System.NotImplementedException();
+            return items.Sum(i => i.value) * percent / 100;
         }
     }
 }
