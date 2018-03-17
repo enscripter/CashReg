@@ -20,5 +20,9 @@ namespace CashReg.interfaces
         /// </summary>
         /// <returns>The number of unique items in this register</returns>
         int UniqueItemCount();
+        /// <summary>
+        /// Print all the items and quantites and values
+        /// </summary>
+        void ListItems();
     }
 }

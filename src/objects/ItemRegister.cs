@@ -42,6 +42,14 @@ namespace CashReg.objects
             return items.Count;
         }
         /// <summary>
+        /// Print all the items to the console with values and quantites
+        /// </summary>
+        public void ListItems()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
         /// Public constructor for this register
         /// </summary>
         public ItemRegister()
