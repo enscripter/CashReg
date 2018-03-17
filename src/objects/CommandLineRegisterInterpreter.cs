@@ -51,7 +51,7 @@ namespace CashReg.objects
                 Console.WriteLine();
             }
         }
-                private static void ScanNewItem(ItemRegister register)
+        private static void ScanNewItem(ItemRegister register)
         {
             var itemConverter = new StringItemBaseConverter();
             Console.Write("item > ");
