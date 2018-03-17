@@ -31,7 +31,7 @@ namespace CashReg
                         ScanNewItem(register);
                         break;
                     case "coupon":
-                        ScanNewCoupone(register);
+                        ScanNewCoupon(register);
                         break;
                     case "help":
                         Console.WriteLine($"Please use any of [{COMPACT_ACTIONS}]\nYou'll be prompted for additional details if necessary");
@@ -61,7 +61,7 @@ namespace CashReg
             register.Add(itemToAdd);
             Console.Write($@"Added {"" + ((itemToAdd.GetType() == typeof(QuantityItem)) ? ((QuantityItem)itemToAdd).quantity : ((WeightedItem)itemToAdd).weight)} {itemToAdd.name}@{itemToAdd.value}");
         }
-        private static void ScanNewCoupone(ItemRegister register)
+        private static void ScanNewCoupon(ItemRegister register)
         {
             var couponConverter = new StringCouponBaseConverter();
             Console.Write("coupon > ");
