@@ -4,14 +4,14 @@ namespace tests.unit
 {
     public class FooItem : ItemBase
     {
-        private float val = 1.0F;
-        public override float TotalValue()
+        private decimal val = 1.0m;
+        public override decimal TotalValue()
         {
             return val;
         }
         public override void Update(ItemBase item)
         {
-            val += 1.0F;
+            val += 1.0m;
             return;
         }
         public FooItem()

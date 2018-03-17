@@ -21,17 +21,32 @@ namespace CashReg.objects
             if (inputParts.Length != 3)
                 return null;
             try {
-                var quantity = Int32.Parse(inputParts[0]);
                 var name = inputParts[1];
-                var value = float.Parse(inputParts[2]);
-                return new QuantityItem() {
-                    quantity = quantity,
-                    name = name,
-                    value = value
-                };
+                var value = decimal.Parse(inputParts[2]);
+                int quantity = 0;
+                var weight = 0.0F;
+                if (Int32.TryParse(inputParts[0], out quantity)) {
+                    if (quantity == 0)
+                        throw new FormatException();
+                    return new QuantityItem() {
+                        quantity = quantity,
+                        name = name,
+                        value = value
+                    };
+                }
+                else if (float.TryParse(inputParts[0], out weight)) {
+                    if (weight == 0)
+                        throw new FormatException();
+                    return new WeightedItem() {
+                        weight = weight,
+                        name = name,
+                        value = value
+                    };
+                }
             } catch (Exception) {
                 return null;
             }
+            return null;
         }
     }
 }

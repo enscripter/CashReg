@@ -34,7 +34,7 @@ namespace tests.unit
         {
             var itemRegister = new ItemRegister();
             itemRegister.Add(new FooItem());
-            Assert.Equal(1.0, itemRegister.Total());
+            Assert.Equal(1.0m, itemRegister.Total());
         }
         [Fact]
         public void ItemRegister_Total_TenItems()
@@ -42,7 +42,7 @@ namespace tests.unit
             var itemRegister = new ItemRegister();
             for (int i = 0; i < 10; i++)
                 itemRegister.Add(new FooItem());
-            Assert.Equal(10.0, itemRegister.Total());
+            Assert.Equal(10.0m, itemRegister.Total());
         }
         [Fact]
         public void ItemRegister_Add_WeightedItem()

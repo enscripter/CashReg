@@ -7,7 +7,7 @@ namespace tests.unit
     public class BxGyCouponTests
     {
         private static string FOO = "foo";
-        private static List<QuantityItem> FooList(int quantity, float value){
+        private static List<QuantityItem> FooList(int quantity, decimal value){
             var items = new List<QuantityItem>();
             var testItemName = FOO;
             items.Add(new QuantityItem(){
