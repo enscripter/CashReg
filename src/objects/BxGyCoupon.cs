@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using CashReg.objects;
 
 namespace CashReg.objects
@@ -9,6 +10,10 @@ namespace CashReg.objects
     /// </summary>
     public class BxGyCoupon : CouponBase<QuantityItem>
     {
+        /// <summary>
+        /// The Name of the item this Coupon applies to
+        /// </summary>
+        public string itemName;
         /// <summary>
         /// The quantity to have to get Y for free
         /// </summary>
@@ -24,7 +29,14 @@ namespace CashReg.objects
         /// <returns>The calculated discoun from the item</returns>
         public override float Discount(IEnumerable<QuantityItem> items)
         {
-            throw new System.NotImplementedException();
+            var applicableItem = items.FirstOrDefault(i => i.name == itemName);
+            var fullDiscounts = applicableItem.quantity / (X + Y);
+            if (applicableItem.quantity == fullDiscounts * (X + Y))
+                return fullDiscounts * Y * applicableItem.value;
+            else if (applicableItem.quantity > X && applicableItem.quantity < fullDiscounts * (X + Y) + X + Y)
+                return (fullDiscounts * Y * applicableItem.value) + (applicableItem.quantity % (X + Y) - X);
+            else
+                return 0;
         }
     }
 }
