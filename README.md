@@ -246,8 +246,6 @@ help, scan, total, coupon, exit ? coupon
 coupon > BXGY apple 1 1
 ```
 
-
-
 ### Total
 
 The "total" command prints all items that have benn scanned into the register.
@@ -256,6 +254,8 @@ e.g.
 
 ```
 help, scan, total, coupon, exit ? total
+CashReg Currrent Total
+        2 Unique Items
         1 apple@1.99
         2.5 orange@0.99
 
