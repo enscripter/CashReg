@@ -1,5 +1,38 @@
 # CashReg
+<!-- TOC -->
 
+- [CashReg](#cashreg)
+    - [Overview](#overview)
+    - [Assumptions](#assumptions)
+    - [Build](#build)
+    - [Test](#test)
+        - [All tests](#all-tests)
+        - [Some tests](#some-tests)
+    - [Publish](#publish)
+        - [Windows](#windows)
+            - [Portable](#portable)
+            - [Windows 7](#windows-7)
+        - [Windows 8](#windows-8)
+            - [Windows 8.1](#windows-81)
+            - [Windows 10](#windows-10)
+        - [Linux](#linux)
+            - [Portable](#portable-1)
+            - [CentOS](#centos)
+            - [Debian](#debian)
+            - [Fedora](#fedora)
+            - [Additional Distros](#additional-distros)
+        - [MacOS](#macos)
+    - [Usage](#usage)
+        - [Run the app](#run-the-app)
+        - [Initial Prompt](#initial-prompt)
+        - [Help](#help)
+        - [Scan](#scan)
+        - [Coupon](#coupon)
+            - [BOGO example](#bogo-example)
+        - [Total](#total)
+        - [Exit](#exit)
+
+<!-- /TOC -->
 ## Overview
 
 This is a sample dotnet core console app. This program simulates a cash register. This was created as an exercise for a Job Interview.
