@@ -26,9 +26,9 @@ namespace CashReg.objects
         /// Get the total of all ItemBase item in this register
         /// </summary>
         /// <returns>The total value of all ItemBase items minus any Discounts</returns>
-        public float Total()
+        public decimal Total()
         {
-            float total = 0;
+            decimal total = 0;
             foreach (ItemBase item in items)
                 total += item.TotalValue();
             return total;

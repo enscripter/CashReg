@@ -15,9 +15,9 @@ namespace CashReg.objects
         /// Calcluate the total value of this Item
         /// </summary>
         /// <returns>The total value of this Item</returns>
-        public override float TotalValue()
+        public override decimal TotalValue()
         {
-            return weight * value;
+            return (decimal)weight * value;
         }
         /// <summary>
         /// Update this WeightedItem with additional weight from another WeightedItem,

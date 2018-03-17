@@ -15,9 +15,9 @@ namespace CashReg.objects
         /// The total value of this Item
         /// </summary>
         /// <returns>The calculated value of the entire quantity of this Item</returns>
-        public override float TotalValue()
+        public override decimal TotalValue()
         {
-            return value * quantity;
+            return value * (decimal) quantity;
         }
         /// <summary>
         /// Update this QuantityItem with additional quantities from another QuantityItem,

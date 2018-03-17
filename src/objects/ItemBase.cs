@@ -1,3 +1,5 @@
+using System;
+
 namespace CashReg.objects
 {
     /// <summary>
@@ -12,12 +14,12 @@ namespace CashReg.objects
         /// <summary>
         /// What the value of this ItemBase is
         /// </summary>
-        public float value;
+        public decimal value;
         /// <summary>
         /// Get the total value of this ItemBase
         /// </summary>
         /// <returns>The value of this ItemBase</returns>
-        public abstract float TotalValue();
+        public abstract decimal TotalValue();
         /// <summary>
         /// Update this ItemBase with another
         /// </summary>

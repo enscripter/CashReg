@@ -27,7 +27,7 @@ namespace CashReg.objects
         /// </summary>
         /// <param name="items">The items to generate the discount from</param>
         /// <returns>The calculated discoun from the item</returns>
-        public override float Discount(IEnumerable<QuantityItem> items)
+        public override decimal Discount(IEnumerable<QuantityItem> items)
         {
             var applicableItem = items.FirstOrDefault(i => i.name == itemName);
             var fullDiscounts = applicableItem.quantity / (X + Y);

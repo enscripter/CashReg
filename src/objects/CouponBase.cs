@@ -13,6 +13,6 @@ namespace CashReg.objects
         /// </summary>
         /// <param name="items">The list of Items to get the discount of</param>
         /// <returns>The value of the discount that should be subtracted from a total</returns>
-        public abstract float Discount(IEnumerable<T> items);
+        public abstract decimal Discount(IEnumerable<T> items);
     }
 }

@@ -17,9 +17,9 @@ namespace CashReg.objects
         /// </summary>
         /// <param name="items">The items to generate the discount from</param>
         /// <returns>The calculated discoun from the item</returns>
-        public override float Discount(IEnumerable<ItemBase> items)
+        public override decimal Discount(IEnumerable<ItemBase> items)
         {
-            return items.Sum(i => i.value) * percent / 100;
+            return items.Sum(i => i.value) * (decimal)percent / 100;
         }
     }
 }

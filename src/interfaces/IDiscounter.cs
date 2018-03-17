@@ -13,6 +13,6 @@ namespace CashReg.interfaces
         /// </summary>
         /// <param name="items">An iterable object of ItemBases</param>
         /// <returns>The total discount applied to all item</returns>
-        float Discount(IEnumerable<T> items);
+        decimal Discount(IEnumerable<T> items);
     }
 }
