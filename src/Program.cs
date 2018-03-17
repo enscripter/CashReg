@@ -22,7 +22,7 @@ namespace CashReg
             {
                 Console.Write($"{COMPACT_ACTIONS} ? ");
                 var action = Console.ReadLine();
-                switch (action)
+                switch (action.ToLower().Trim())
                 {
                     case "scan":
                         Console.Write("item > ");
@@ -43,6 +43,8 @@ namespace CashReg
                         Console.WriteLine($"Please use any of [{COMPACT_ACTIONS}]\nYou'll be prompted for additional details if necessary");
                         break;
                     case "total":
+                        Console.WriteLine("CashReg Currrent Total");
+                        Console.WriteLine($"\t{register.UniqueItemCount()} Unique Items");
                         register.ListItems();
                         Console.WriteLine($"\nSubTotal: {register.SubTotal()}\t Discount: {register.TotalDiscount()}");
                         Console.WriteLine($"Total: {register.Total() - register.TotalDiscount()}");
@@ -56,16 +58,6 @@ namespace CashReg
                 }
                 Console.WriteLine();
             }
-        }
-        private static string GetItemName()
-        {
-            Console.Write("Please enter an item: ");
-            return Console.ReadLine();
-        }
-        private static float GetAmount()
-        {
-            Console.Write("Please enter an amount: ");
-            return float.Parse(Console.ReadLine());
         }
     }
 }
