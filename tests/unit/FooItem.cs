@@ -1,6 +1,6 @@
 using CashReg.objects;
 
-namespace tests
+namespace tests.unit
 {
     public class FooItem : ItemBase
     {

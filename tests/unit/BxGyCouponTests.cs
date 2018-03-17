@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using CashReg.objects;
 using Xunit;
 
-namespace tests
+namespace tests.unit
 {
     public class BxGyCouponTests
     {

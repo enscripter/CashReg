@@ -1,7 +1,7 @@
 using Xunit;
 using CashReg.objects;
 
-namespace tests
+namespace tests.unit
 {
     /// <summary>
     /// Tests for the ItemRegister concrete implementation

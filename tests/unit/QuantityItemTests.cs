@@ -1,7 +1,7 @@
 using CashReg.objects;
 using Xunit;
 
-namespace tests
+namespace tests.unit
 {
     /// <summary>
     /// Tests for the QuantityItem implementation
