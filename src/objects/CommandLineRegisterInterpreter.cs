@@ -81,7 +81,7 @@ namespace CashReg.objects
             Console.WriteLine($"\t{register.UniqueItemCount()} Unique Items");
             register.ListItems();
             Console.WriteLine($"\nSubTotal: {String.Format("{0:0.00}", register.SubTotal())}\t Discount: {String.Format("{0:0.00}", register.TotalDiscount())}");
-            Console.WriteLine($"\nTotal: {String.Format("{0:0.00}", register.Total() - register.TotalDiscount())}");
+            Console.WriteLine($"\nTotal: {String.Format("{0:0.00}", (register.SubTotal() - register.TotalDiscount()))}");
         }
     }
 }
