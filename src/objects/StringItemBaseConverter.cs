@@ -1,3 +1,4 @@
+using System;
 using CashReg.interfaces;
 
 namespace CashReg.objects
@@ -14,7 +15,9 @@ namespace CashReg.objects
         /// <returns>An ItemBase instance based off the input string</returns>
         public ItemBase Convert(string input)
         {
-            throw new System.NotImplementedException();
+            if (input == "")
+                return null;
+            throw new NotImplementedException();
         }
     }
 }
