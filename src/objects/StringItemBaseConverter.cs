@@ -17,7 +17,21 @@ namespace CashReg.objects
         {
             if (input == "")
                 return null;
-            throw new NotImplementedException();
+            var inputParts = input.Split(' ');
+            if (inputParts.Length != 3)
+                return null;
+            try {
+                var quantity = Int32.Parse(inputParts[0]);
+                var name = inputParts[1];
+                var value = float.Parse(inputParts[2]);
+                return new QuantityItem() {
+                    quantity = quantity,
+                    name = name,
+                    value = value
+                };
+            } catch (Exception) {
+                return null;
+            }
         }
     }
 }
