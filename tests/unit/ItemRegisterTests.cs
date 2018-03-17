@@ -18,22 +18,22 @@ namespace tests.unit
         public void ItemRegister_UniqueItemCount_SingleItem()
         {
             var register = new ItemRegister();
-            register.Add(new FooItem());
+            register.Add(new MockItem());
             Assert.Equal(1, register.UniqueItemCount());
         }
         [Fact]
         public void ItemRegister_UniqueItemCount_MultipleItems()
         {
             var register = new ItemRegister();
-            register.Add(new FooItem());
-            register.Add(new FooItem());
+            register.Add(new MockItem());
+            register.Add(new MockItem());
             Assert.Equal(1, register.UniqueItemCount());
         }
         [Fact]
         public void ItemRegister_Total_SingleItem()
         {
             var itemRegister = new ItemRegister();
-            itemRegister.Add(new FooItem());
+            itemRegister.Add(new MockItem());
             Assert.Equal(1.0m, itemRegister.Total());
         }
         [Fact]
@@ -41,7 +41,7 @@ namespace tests.unit
         {
             var itemRegister = new ItemRegister();
             for (int i = 0; i < 10; i++)
-                itemRegister.Add(new FooItem());
+                itemRegister.Add(new MockItem());
             Assert.Equal(10.0m, itemRegister.Total());
         }
         [Fact]
@@ -78,7 +78,7 @@ namespace tests.unit
                 weight = 1,
                 value = 1
             });
-            register.Add(new FooItem());
+            register.Add(new MockItem());
             Assert.Equal(3, register.Total());
         }
     }

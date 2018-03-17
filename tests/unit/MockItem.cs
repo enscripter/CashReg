@@ -2,7 +2,7 @@ using CashReg.objects;
 
 namespace tests.unit
 {
-    public class FooItem : ItemBase
+    public class MockItem : ItemBase
     {
         private decimal val = 1.0m;
         public override decimal TotalValue()
@@ -14,7 +14,7 @@ namespace tests.unit
             val += 1.0m;
             return;
         }
-        public FooItem()
+        public MockItem()
         {
             name = "foo";
             value = 1;
