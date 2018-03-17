@@ -8,7 +8,7 @@ namespace CashReg.objects
     /// A Buy 'X' get 'Y' coupon where if you have 'X' items you get 'Y' for free,
     /// this type of Coupon only applies to QuantityItems
     /// </summary>
-    public class BxGyCoupon : CouponBase<QuantityItem>
+    public class BxGyCoupon : CouponBase
     {
         /// <summary>
         /// The Name of the item this Coupon applies to
@@ -26,10 +26,12 @@ namespace CashReg.objects
         /// Calculates the total discount of am IEnumerable of Items
         /// </summary>
         /// <param name="items">The items to generate the discount from</param>
-        /// <returns>The calculated discoun from the item</returns>
-        public override decimal Discount(IEnumerable<QuantityItem> items)
+        /// <returns>The calculated discount from the item</returns>
+        public override decimal Discount(IEnumerable<ItemBase> items)
         {
-            var applicableItem = items.FirstOrDefault(i => i.name == itemName);
+            QuantityItem applicableItem = (QuantityItem)items.FirstOrDefault(i => i.name == itemName);
+            if (applicableItem == null)
+                return 0m;
             var fullDiscounts = applicableItem.quantity / (X + Y);
             if (applicableItem.quantity == fullDiscounts * (X + Y))
                 return fullDiscounts * Y * applicableItem.value;

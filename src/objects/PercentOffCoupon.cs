@@ -6,7 +6,7 @@ namespace CashReg.objects
     /// <summary>
     /// A Coupon whose applies to a percentage off of that item
     /// </summary>
-    public class PercentOffCoupon : CouponBase<ItemBase>
+    public class PercentOffCoupon : CouponBase
     {
         /// <summary>
         /// The percentage off of the Item
@@ -18,8 +18,6 @@ namespace CashReg.objects
         /// <param name="items">The items to generate the discount from</param>
         /// <returns>The calculated discoun from the item</returns>
         public override decimal Discount(IEnumerable<ItemBase> items)
-        {
-            return items.Sum(i => i.value) * (decimal)percent / 100;
-        }
+            => items.Sum(i => i.value) * (decimal)percent / 100;
     }
 }
