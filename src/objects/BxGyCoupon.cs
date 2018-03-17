@@ -31,6 +31,8 @@ namespace CashReg.objects
         public override decimal Discount(IEnumerable<ItemBase> items)
         {
             var existingItem = items.FirstOrDefault(i => i.name == itemName);
+            if (existingItem == null)
+                return 0;
             QuantityItem applicableItem;
             if (existingItem.GetType() == typeof(QuantityItem))
                 applicableItem = (QuantityItem) existingItem;
