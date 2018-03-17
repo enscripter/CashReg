@@ -52,7 +52,6 @@ namespace CashReg.objects
                 Console.WriteLine($"\t{item}");
             }
         }
-
         /// <summary>
         /// Public constructor for this register
         /// </summary>
