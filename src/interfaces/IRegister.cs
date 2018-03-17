@@ -15,5 +15,10 @@ namespace CashReg.interfaces
         /// </summary>
         /// <returns>The total value of all items in the Register</returns>
         float Total();
+        /// <summary>
+        /// Returns the number of unique items in this register
+        /// </summary>
+        /// <returns>The number of unique items in this register</returns>
+        int UniqueItemCount();
     }
 }
