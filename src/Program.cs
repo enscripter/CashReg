@@ -21,8 +21,6 @@ namespace CashReg
         {
             Console.WriteLine($"Welcome to CashReg type \"help\" to see more info");
             var register = new ItemRegister();
-            var itemConverter = new StringItemBaseConverter();
-            var couponConverter = new StringCouponBaseConverter();
             while (true)
             {
                 Console.Write($"{COMPACT_ACTIONS} ? ");
@@ -30,34 +28,16 @@ namespace CashReg
                 switch (action.ToLower().Trim())
                 {
                     case "scan":
-                        Console.Write("item > ");
-                        var itemToAdd = itemConverter.Convert(Console.ReadLine());
-                        if (itemToAdd == null) {
-                            Console.WriteLine($"Invalid input\n\t{SCAN_INPUT_FORMAT}");
-                            break;
-                        }
-                        register.Add(itemToAdd);
-                        Console.Write($@"Added {"" + ((itemToAdd.GetType() == typeof(QuantityItem)) ? ((QuantityItem)itemToAdd).quantity : ((WeightedItem)itemToAdd).weight)} {itemToAdd.name}@{itemToAdd.value}");
+                        ScanNewItem(register);
                         break;
                     case "coupon":
-                        Console.Write("coupon > ");
-                        var couponLine = Console.ReadLine();
-                        var couponToAdd = couponConverter.Convert(couponLine);
-                        if (couponToAdd == null) {
-                            Console.WriteLine($"Invalid input\n\t{COUPON_INPUT_FORMAT}");
-                            break;
-                        }
-                        register.ApplyDiscount(couponToAdd);
+                        ScanNewCoupone(register);
                         break;
                     case "help":
                         Console.WriteLine($"Please use any of [{COMPACT_ACTIONS}]\nYou'll be prompted for additional details if necessary");
                         break;
                     case "total":
-                        Console.WriteLine("CashReg Currrent Total");
-                        Console.WriteLine($"\t{register.UniqueItemCount()} Unique Items");
-                        register.ListItems();
-                        Console.WriteLine($"\nSubTotal: {register.SubTotal()}\t Discount: {register.TotalDiscount()}");
-                        Console.WriteLine($"Total: {register.Total() - register.TotalDiscount()}");
+                        DisplayTotal(register);
                         break;
                     case "exit":
                         Environment.Exit(0);
@@ -68,6 +48,38 @@ namespace CashReg
                 }
                 Console.WriteLine();
             }
+        }
+        private static void ScanNewItem(ItemRegister register)
+        {
+            var itemConverter = new StringItemBaseConverter();
+            Console.Write("item > ");
+            var itemToAdd = itemConverter.Convert(Console.ReadLine());
+            if (itemToAdd == null) {
+                Console.WriteLine($"Invalid input\n\t{SCAN_INPUT_FORMAT}");
+                return;
+            }
+            register.Add(itemToAdd);
+            Console.Write($@"Added {"" + ((itemToAdd.GetType() == typeof(QuantityItem)) ? ((QuantityItem)itemToAdd).quantity : ((WeightedItem)itemToAdd).weight)} {itemToAdd.name}@{itemToAdd.value}");
+        }
+        private static void ScanNewCoupone(ItemRegister register)
+        {
+            var couponConverter = new StringCouponBaseConverter();
+            Console.Write("coupon > ");
+            var couponLine = Console.ReadLine();
+            var couponToAdd = couponConverter.Convert(couponLine);
+            if (couponToAdd == null) {
+                Console.WriteLine($"Invalid input\n\t{COUPON_INPUT_FORMAT}");
+                return;
+            }
+            register.ApplyDiscount(couponToAdd);
+        }
+        private static void DisplayTotal(ItemRegister register)
+        {
+            Console.WriteLine("CashReg Currrent Total");
+            Console.WriteLine($"\t{register.UniqueItemCount()} Unique Items");
+            register.ListItems();
+            Console.WriteLine($"\nSubTotal: {String.Format("{0:0.00}", register.SubTotal())}\t Discount: {String.Format("{0:0.00}", register.TotalDiscount())}");
+            Console.WriteLine($"\nTotal: {String.Format("{0:0.00}", register.Total() - register.TotalDiscount())}");
         }
     }
 }
