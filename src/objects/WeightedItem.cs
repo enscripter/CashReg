@@ -1,3 +1,5 @@
+using System;
+
 namespace CashReg.objects
 {
     /// <summary>
@@ -16,6 +18,20 @@ namespace CashReg.objects
         public override float TotalValue()
         {
             return weight * value;
+        }
+        /// <summary>
+        /// Update this WeightedItem with additional weight from another WeightedItem,
+        /// if item is not typeof WeightedItem this is a no-op
+        /// </summary>
+        /// <param name="item">The item whose </param>
+        public override void Update(ItemBase item)
+        {
+            try {
+                WeightedItem weightedItem = (WeightedItem) item;
+                this.weight += weightedItem.weight;
+            } catch (InvalidCastException) {
+                return;
+            }
         }
     }
 }

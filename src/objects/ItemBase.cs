@@ -18,5 +18,9 @@ namespace CashReg.objects
         /// </summary>
         /// <returns>The value of this ItemBase</returns>
         public abstract float TotalValue();
+        /// <summary>
+        /// Update this ItemBase with another
+        /// </summary>
+        public abstract void Update(ItemBase item);
     }
 }

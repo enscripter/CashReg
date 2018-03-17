@@ -19,5 +19,19 @@ namespace CashReg.objects
         {
             return value * quantity;
         }
+        /// <summary>
+        /// Update this QuantityItem with additional quantities from another QuantityItem,
+        /// if item is not typeof QuantityItem this is a no-op
+        /// </summary>
+        /// <param name="item">The Item to update this Item with</param>
+        public override void Update(ItemBase item)
+        {
+            try {
+                QuantityItem quantityItem = (QuantityItem) item;
+                this.quantity += quantityItem.quantity;
+            } catch (InvalidCastException) {
+                return;
+            }
+        }
     }
 }

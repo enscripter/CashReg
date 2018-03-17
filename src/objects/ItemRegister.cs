@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using CashReg.interfaces;
 
 namespace CashReg.objects
@@ -15,7 +16,11 @@ namespace CashReg.objects
         /// <param name="item">The ItemBase to be added</param>
         public void Add(ItemBase item)
         {
-            items.Add(item);
+            var existingItem = items.FirstOrDefault(i => i.name == item.name);
+            if (existingItem != null)
+                existingItem.Update(item);
+            else
+                items.Add(item);
         }
         /// <summary>
         /// Get the total of all ItemBase item in this register
