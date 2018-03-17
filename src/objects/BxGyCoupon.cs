@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CashReg.objects;
@@ -29,7 +30,12 @@ namespace CashReg.objects
         /// <returns>The calculated discount from the item</returns>
         public override decimal Discount(IEnumerable<ItemBase> items)
         {
-            QuantityItem applicableItem = (QuantityItem)items.FirstOrDefault(i => i.name == itemName);
+            var existingItem = items.FirstOrDefault(i => i.name == itemName);
+            QuantityItem applicableItem;
+            if (existingItem.GetType() == typeof(QuantityItem))
+                applicableItem = (QuantityItem) existingItem;
+            else
+                return 0;
             if (applicableItem == null)
                 return 0m;
             var fullDiscounts = applicableItem.quantity / (X + Y);
