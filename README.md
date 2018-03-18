@@ -13,16 +13,9 @@
         - [From build](#from-build)
     - [Publish](#publish)
         - [Windows](#windows)
-            - [Portable](#portable)
-            - [Windows 7](#windows-7)
-        - [Windows 8](#windows-8)
-            - [Windows 8.1](#windows-81)
             - [Windows 10](#windows-10)
         - [Linux](#linux)
-            - [Portable](#portable-1)
-            - [CentOS](#centos)
-            - [Debian](#debian)
-            - [Fedora](#fedora)
+        - [Ubuntu](#ubuntu)
             - [Additional Distros](#additional-distros)
         - [MacOS](#macos)
     - [Usage](#usage)
@@ -122,48 +115,7 @@ To publish the project for a particular platform run one of the following.
 
 ### Windows
 
-#### Portable
-
-~~~sh
-cd src
-dotnet publish -r win-x86
--- or --
-dotnet publish -r win-x64
-~~~
-
-#### Windows 7
-
-~~~sh
-cd src
-dotnet publish -r win7-x86
--- or ---
-dotnet publish -r win7-x64
-~~~
-
-### Windows 8
-
-~~~sh
-cd src
-dotnet publish -r win8-x86
--- or --
-dotnet publish -r win8-x64
--- or ---
-dotnet publish -r win8-arm
-~~~
-
-#### Windows 8.1
-
-~~~sh
-cd src
-dotnet publish -r win81-x86
--- or --
-dotnet publish -r win81-x64
--- or ---
-dotnet publish -r win81-arm
-~~~
-
 #### Windows 10
-
 
 ~~~sh
 cd src
@@ -178,44 +130,12 @@ dotnet publish -r win10-arm64
 
 ### Linux
 
-#### Portable
+### Ubuntu
 
 ~~~sh
 cd src
-dotnet publish -r linux-x64
+dotnet publish -r ubuntu-x64
 ~~~
-
-#### CentOS
-
-~~~sh
-cd src
-dotnet publish -r centos-x64
--- or --
-dotnet publish -r centos.7-x64
-~~~
-
-#### Debian
-
-~~~sh
-cd src
-dotnet publish -r debian-x64
--- or --
-dotnet publish -r debian.8-x64
-~~~
-
-#### Fedora
-
-~~~sh
-cd src
-dotnet publish -r fedora-x64
--- or --
-dotnet publish -r fedora.24-x64
--- or --
-dotnet publish -r fedora.25-x64
--- or --
-dotnet publish -r fedora.26-x64
-~~~
-
 #### Additional Distros
 
 For publishing to additional linux distros see [microsoft](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog "Dotnet core publish reference").
